@@ -116,6 +116,62 @@ button {
     color: #47aa5a;
 }
 
+/* Water meter */
+
+.water-meter {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.water-label {
+  display: flex;
+  justify-content: space-between;
+}
+
+#water,
+#percentage {
+  font-size: 1.125rem;
+  color: #47aa5a;
+}
+
+.water-bar {
+  width: 100%;
+  max-width: 18rem;
+  height: 100%;
+  max-height: 1.875rem;
+  padding: 0.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border: 3px solid #47aa5a;
+  border-radius: 12px;
+  background: #c2e0b8;
+}
+
+.percentage-bar {
+  width: 100%;
+  max-width: 1.5rem;
+  height: 100%;
+  max-height: 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #8fc98a;
+  color: #8fc98a;
+}
+
+#bar-1 {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+#bar-10 {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
 /* Action Buttons */
 
 .action-btns {
