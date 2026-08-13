@@ -9,6 +9,8 @@ function createWindow(){
         maximizable: false, 
         fullscreen: false, 
         center: true, 
+        frame: false,
+        transparent: true,
         alwaysOnTop: true, 
         webPreferences: {
             nodeIntegration: true, 
