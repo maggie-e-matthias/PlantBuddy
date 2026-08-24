@@ -95,6 +95,49 @@ function updateUI(){
             water_level = Math.max(0, water_level - drain_amount);
             updateUI();
         }
-    })
+    }, drain_interval);
 }
 
+// Water Button
+water_btn.addEventListener("click", () => {
+    if(water_on_cooldown) return;
+    water_level = Math.min(100, water_level + 25);  // Refills 25% per use
+    updateUI();
+
+    // Start Cooldown
+    water_on_cooldown = true;
+    water_btn.disabled = true;
+    water_btn.style.opacity = 0.5;
+    let remaining = water_cooldown / 100;
+    water_timer_el.textContent = `${remaining}s`;
+
+    // Cooldown Timer
+    cooldown_timer = setInterval(() => {
+        remaining -=1;
+        if(remaining <= 0){
+            clearInterval(cooldown_timer);
+            water_on_cooldown = false;
+            water_btn.disabled = false;
+            water_btn.style.opacity = 1; 
+            water_timer_el.textContent = "READY"; 
+        }
+        else{
+            water_timer_el.textContent = `${remaining}s`;
+        }
+    }, 1000);
+});
+
+
+// Restart Button
+restart_btn.addEventListener("click", () => {
+    water_level = 100;
+    water_on_cooldown = false;
+    water_btn.disabled = false;
+    water_btn.style.opacity = 1;
+    water_timer_el.textContent = "READY"; 
+    clearInterval(cooldown_timer);
+    updateUI();
+});
+
+
+updateUI();
