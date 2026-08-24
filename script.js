@@ -88,15 +88,16 @@ function updateUI(){
         water_btn.style.display = "none";
     }
 
-
-    // Drain Loop
-    setInterval(() =>{
-        if(water_level > 0){
-            water_level = Math.max(0, water_level - drain_amount);
-            updateUI();
-        }
-    }, drain_interval);
 }
+
+// Drain Loop
+setInterval(() =>{
+    if(water_level > 0){
+        water_level = Math.max(0, water_level - drain_amount);
+         updateUI();
+    }
+}, drain_interval);
+
 
 // Water Button
 water_btn.addEventListener("click", () => {
